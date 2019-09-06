@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Hiệu ứng CSS 3D</title>
+  <meta name="description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+  <meta property="og:description" content="Hiệu ứng trình diễn ảnh 3D đẹp mắt chỉ với HTML5 và CSS3" />
+  <meta property="og:image" content="https://redirect.nhq.vn/demo/screenshot.png" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <script type="text/javascript" charset="utf-8">
+    function hasClassName(inElement, inClassName)
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+    function addClassName(inElement, inClassName)
+    {
+        if (!hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    function removeClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+    function toggleClassName(inElement, inClassName)
+    {
+        if (hasClassName(inElement, inClassName))
+            removeClassName(inElement, inClassName);
+        else
+            addClassName(inElement, inClassName);
+    }
+
+    function toggleShape()
+    {
+      var shape = document.getElementById('shape');
+      if (hasClassName(shape, 'cube') || hasClassName(shape, 'autoLoad')) {
+		if (hasClassName(shape, 'cube')) {
+			removeClassName(shape, 'cube');
+		}
+		if (hasClassName(shape, 'autoLoad')) {
+			removeClassName(shape, 'autoLoad');
+		}
+        addClassName(shape, 'ring');
+      } else {
+        removeClassName(shape, 'ring');
+        addClassName(shape, 'cube');
+      }
+      
+      var stage = document.getElementById('stage');
+      if (hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+	function downloadLink()
+    {
+      location.href = 'http://redirect.nhq.vn/demo/3d-css.zip';
+    }
+	var count = 0;
+	var timer;
+	function timedCount() {
+		if(count >= 8) {
+			count = 0;
+			autoLoad();
+		} else {
+			count = count + 1;
+		}
+		timer = setTimeout(timedCount, 1000);
+	}
+	function autoLoad() {
+		var shapeTest = document.getElementById('shape');
+		if (hasClassName(shapeTest, 'cube')) {
+			removeClassName(shapeTest, 'cube');
+			addClassName(shapeTest, 'autoLoad');
+		} else {
+			toggleShape();
+		}
+	}
+  </script>
+</head>
+<body onload="timedCount()">
+
+  <div style="text-align: right;display: none; padding: 15px;"><button onclick="downloadLink()">Download code</button></div>
+  
+  <div id="container">
+    <div id="stage">
+      <div id="shape" class="cube backfaces">
+        <div class="plane one"></div>
+        <div class="plane two"></div>
+        <div class="plane three"></div>
+        <div class="plane four"></div>
+        <div class="plane five"></div>
+        <div class="plane six"></div>
+        <div class="plane seven"></div>
+        <div class="plane eight"></div>
+        <div class="plane nine"></div>
+        <div class="plane ten"></div>
+        <div class="plane eleven"></div>
+        <div class="plane twelve"></div>
+      </div>
+    </div>
+  </div>
+  <div style="position: absolute; z-index: -100000; top: 15px;left: 15px;height: 30px;width: 300px;"><audio controls autoplay loop><source src="Girls_Like_You.mp3" type="audio/mpeg"></audio></div>
+  <!--// https://www.facebook.com/huykhangvo0209 //-->
+</body>
+<div class="author">
+			<button onclick="downloadLink()">© HuyKhang</button>
+		</div>
+		<div title="Tiểu Long Ruồi
+Loại: Nhặng
+Màu sắc: Xanh
+Giới tính: Cái
+Môn phái: Cổ Mộ" id="test" style="width: 50px; height: 50px; background-image: url(&quot;https://redirect.nhq.vn/demo/js/images/ruoi_11.png&quot;); background-position: 0px -100px; position: absolute; left: 852px; top: 346px; z-index: 9999; cursor: url(&quot;https://redirect.nhq.vn/demo/js/images/flyswatter.png&quot;), pointer;"><div style="background: rgb(255, 255, 255); color: rgb(34, 34, 34); position: absolute; z-index: 9998; min-width: 120px; min-height: 100px; margin: 25px 50px; padding: 10px; opacity: 0.95; border-radius: 3px; box-shadow: rgb(34, 34, 34) 1px 1px 2px 1px; display: none;">Tiểu Long Ruồi nói:
+"Quá nhi à! Chàng đang ở đâu hở.."</div></div>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script type="text/javascript" var_1="true" var_2="false" var_3="false" var_4="80" src="https://static1.fshare.vn/js/flies-obj-2.1.js?v=a5a98a85"></script>
+</html>
+
+
